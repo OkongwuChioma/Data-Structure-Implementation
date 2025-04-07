@@ -1,0 +1,52 @@
+
+class customer
+{
+    public int id {  get; set; }
+    public string name {  get; set; }
+    public string description {  get; set; }
+    
+
+
+    public customer(int id, string name, string description)
+    {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+    public override string ToString()
+    {
+        return $"Customer ID: {id}, Name: {name}, Gender: {description}";
+    }
+    
+}
+class Stacko<T>
+{
+    public Stacko<T> firstItem;
+    public Stacko<T> LastItemItem;
+    public T next;
+
+    private LinkedList<T> items = new LinkedList<T>();
+
+    public bool IsEmpty()
+    {
+        return items.Count == 0;
+    }
+    public void Enqueue(T item)
+    {
+         items.AddLast(item);
+    }
+    public T Dequeue(T item)
+    {
+        if (IsEmpty())
+            throw new Exception("emty");
+        T value = items.First.Value;
+        items.RemoveFirst();
+        items.AddLast(value);
+        return value;
+  
+    }
+    public int size(int size)
+    {
+        return items.Count;
+    }
+}
