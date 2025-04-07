@@ -1,0 +1,61 @@
+class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public String Gender { get; set; }
+
+    public Customer(int id, string name, string gender)
+    {
+        Id = id;
+        Name = name;
+        Gender = gender;
+    }
+
+    public override string ToString()
+    {
+        return $"Customer ID: {Id}, Name: {Name}, Gender: {Gender}";
+    }
+
+}
+
+class Stack<T>
+{
+    private LinkedList<T> items = new LinkedList<T>();
+    public bool IsEmpty()
+    {
+        return items.Count == 0;
+    }
+
+    public void Push(T item)
+    {
+        items.AddLast(item);
+    }
+
+    public T Pop()
+    {
+        if (IsEmpty())
+            throw new InvalidOperationException("Stack is empty.");
+
+        T lastItem = items.Last.Value;
+        items.RemoveLast();
+        return lastItem;
+    }
+
+    public T Peek()
+    {
+        if (IsEmpty())
+            throw new InvalidOperationException("Stack is empty.");
+        
+        return items.Last.Value;
+    }
+
+    public int Size()
+    {
+        return items.Count;
+    }
+
+    public LinkedList<T> GetItems()
+    {
+        return items;
+    }
+}
